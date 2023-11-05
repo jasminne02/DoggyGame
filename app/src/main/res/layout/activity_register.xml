@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/register"
-        android:textColor="#e5594b"
+        android:textColor="@color/red"
         android:textFontWeight="900"
         android:textSize="46sp"
         app:layout_constraintBottom_toBottomOf="parent"
