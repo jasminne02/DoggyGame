@@ -23,14 +23,31 @@
         app:layout_constraintVertical_bias="0.106"
         tools:ignore="UnusedAttribute" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/top_10_best_scores"
+        android:textColor="@color/red"
+        android:textFontWeight="900"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217"
+        tools:ignore="UnusedAttribute" />
+
     <ScrollView
-        android:layout_width="347dp"
-        android:layout_height="492dp"
+        android:layout_width="351dp"
+        android:layout_height="447dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698">
+        app:layout_constraintVertical_bias="0.767">
 
         <LinearLayout
             android:id="@+id/dashboardLinearLayout"
