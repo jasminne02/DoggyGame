@@ -26,4 +26,15 @@
     <string name="score">Score</string>
     <string name="user">User</string>
     <string name="top_10_best_scores">Top 10 Best Scores</string>
+    <string name="avatar">Avatar</string>
+    <string name="set_avatar">Set Avatar</string>
+    <string name="search_avatar_by_word">Search avatar by word</string>
+    <string name="set_1">Set 1</string>
+    <string name="robots">Robot</string>
+    <string name="roboheads">Robohead</string>
+    <string name="monsters">Monster</string>
+    <string name="cats">Cat</string>
+    <string name="search">Search</string>
+    <string name="search_avatar">Search Avatar</string>
+    <string name="save_avatar">Save Avatar</string>
 </resources>

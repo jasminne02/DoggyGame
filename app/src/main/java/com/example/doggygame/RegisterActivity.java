@@ -67,7 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 db.insertUser(name, email, password1, 0);
                 String userId = db.getUserId(email);
-                LoggedUserEntity.logUser(Integer.parseInt(userId), email, name, 0);
+                LoggedUserEntity.logUser(Integer.parseInt(userId), email, name,
+                        0, RegisterActivity.this);
 
                 db.close();
                  db = null;
