@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseContext extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "game.db";
+    public static final String DB_NAME = "gamedoggy.db";
     public static final int DB_VERSION = 1;
 
     protected final SQLiteDatabase _myDB;
@@ -20,6 +20,7 @@ public class DatabaseContext extends SQLiteOpenHelper {
             "Email text not null, " +
             "Password text not null, " +
             "BestScore int not null, " +
+            "Avatar BLOB, " +
             "UNIQUE(Email) " +
             ");" +
             "";

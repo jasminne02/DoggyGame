@@ -3,10 +3,16 @@ package com.example.doggygame.data;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UserRepositoryManager extends DatabaseContext {
 
@@ -43,6 +49,16 @@ public class UserRepositoryManager extends DatabaseContext {
         String updateQ = "UPDATE user " +
                 "SET BestScore = '" + Score + "' " +
                 "WHERE ID = " + UserId + ";";
+        _myDB.execSQL(updateQ);
+    }
+
+    public void updateUserAvatar(int Id, Bitmap image) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG, 0, stream);
+
+        String updateQ = "UPDATE user " +
+                "SET Avatar = '" + Arrays.toString(stream.toByteArray()) + "' " +
+                "WHERE ID = " + Id + ";";
         _myDB.execSQL(updateQ);
     }
 
@@ -84,6 +100,27 @@ public class UserRepositoryManager extends DatabaseContext {
         if (resultArrayList.size() == 0){return "";}
 
         return resultArrayList.get(0);
+    }
+
+    public Bitmap getUserAvatar(int id){
+        String readQ = "SELECT Avatar FROM user " +
+                "WHERE ID = " + id + ";";
+
+        @SuppressLint("Recycle") Cursor result = _myDB.rawQuery(readQ, null);
+        ArrayList<String> resultArrayList = convertToArrayList(result, 1);
+        if (resultArrayList.size() == 0 || resultArrayList.get(0) == null){return null;}
+
+        String[] data = resultArrayList.get(0).split(", ");
+
+        byte[] image = new byte[data.length];
+        data[0] = data[0].replace("[", "");
+        data[data.length-1] = data[data.length-1].replace("]", "");
+
+        for (int i = 0; i < data.length; i++) {
+            image[i] = (byte) Integer.parseInt(data[i]);
+        }
+
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 
     public ArrayList<String> getAllUserEmails() {
